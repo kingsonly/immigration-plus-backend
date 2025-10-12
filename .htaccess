@@ -1,9 +1,26 @@
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
-
 PassengerAppRoot "/home/comidtuy/cms"
 PassengerBaseURI "/"
 PassengerNodejs "/home/comidtuy/nodevenv/cms/20/bin/node"
 PassengerAppType node
 PassengerStartupFile server.js
-
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# Allow Strapi upload route
+<IfModule mod_security.c>
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+<LimitExcept GET POST HEAD OPTIONS>
+    Order Allow,Deny
+    Allow from all
+</LimitExcept>
+
+# Allow uploads through /api/upload
+<FilesMatch "upload">
+    Require all granted
+</FilesMatch>
+
+# Increase body size limit
+LimitRequestBody 104857600
