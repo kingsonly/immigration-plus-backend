@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "law_home_page",
+  "info": {
+    "displayName": "Law Home Page",
+    "singularName": "law-home-page",
+    "pluralName": "law-home-pages",
+    "description": "Homepage content for the law firm site"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "law.hero-block",
+        "law.practice-section",
+        "law.content-highlight",
+        "law.about-block",
+        "law.testimonials-section",
+        "law.contact-cta"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo"
+    }
+  }
+}
